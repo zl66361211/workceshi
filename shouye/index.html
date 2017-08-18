@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+   <div class="list">
+       <header>
+           <a href="javascript:;" class="return"></a>
+           <label >首页</label>
+           <a href="javascript:;" class="new-patient">新建患者</a>
+       </header>
+       <div class="content">
+           <form action="">
+               <div class="search">
+                   <input type="text" placeholder="输入病历号查找"><input type="button" value="搜索">
+               </div>
+           </form>
+
+           <div class="nav">
+               <ul class="nav-hed">
+                   <li class="cut">进行中</li>
+                   <li >已完成</li>
+               </ul>
+
+               <!--进行中-->
+               <div class="proceed ">
+                   <ul>
+                       <li><a href="javascript:;">
+                           <dl>
+                               <dt><img src="img/d.png" alt=""></dt>
+                               <dd>
+                                   <p>张三</p>
+                                   <p>病历号： <span>001</span></p>
+                                   <p><i>2017 年 7 月 30 日</i></p>
+                               </dd>
+                           </dl>
+
+                       </a></li>
+
+                   </ul>
+               </div>
+
+               <!--已完成-->
+               <div class="proceed ">
+                   <ul>
+                       <li><a href="javascript:;">
+                           <dl>
+                               <dt><img src="img/d.png" alt=""></dt>
+                               <dd>
+                                   <p>张三</p>
+                                   <p>病历号： <span>034</span></p>
+                                   <p><i>2017 年 7 月 30 日</i></p>
+                               </dd>
+                           </dl>
+
+                       </a></li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+   </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            document.documentElement.style.fontSize=document.documentElement.clientWidth*20/320 +'px';
+        },false);
+
+
+        window.onload=function () {
+            var navHed = document.querySelectorAll('.nav-hed')[0];
+            var aLi = navHed.querySelectorAll('li');
+            var aProceed = document.querySelectorAll('.proceed');
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].index = i;
+                aLi[i].onclick = function () {
+                    for (var i = 0; i < aLi.length; i++) {
+                        aLi[i].className = "";
+                        aProceed[i].style.display = "none"
+                    }
+                    this.className = "cut";
+                    aProceed[this.index].style.display = "block"
+                }
+            }
+        }
+    </script>
+</body>
+</html>
